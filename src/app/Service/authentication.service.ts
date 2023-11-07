@@ -28,7 +28,7 @@ export class AuthenticationService {
       .post(fakeAuthApiUrl, userdetail, httpOptions)
       .pipe(
         // timeout function that specifies interval response e.g. 100ms to 600ms OR 1ms to 6ms
-        //to simulate timeout error, the interval response should be between 1-6 milliseconds
+        //to simulate timeout error, the interval response could be set shorter e.g., 1-6 milliseconds
         timeout(1 + Math.random() * 6),
         catchError((err: HttpErrorResponse) => {
           console.error(`HTTP Request Failed due to ${err.message}`);

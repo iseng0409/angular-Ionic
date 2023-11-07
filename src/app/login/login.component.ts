@@ -11,7 +11,6 @@ import {
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { IAuthLoginDto, IAuthResponse } from '../Model/Authentication';
-import { catchError, map } from 'rxjs';
 import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
