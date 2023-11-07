@@ -1,0 +1,93 @@
+<ion-header> </ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroupLogin" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row class="RowCenter">
+        <ion-col sizeLg="3" sizeSm="6">
+          <ion-item lines="full">
+            <ion-label position="floating"> Username</ion-label>
+            <ion-input
+              [formControl]="ctrlUsername"
+              type="text"
+              aria-label="userName"
+              required
+            >
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="RowCenter">
+        <ion-col sizeLg="3" sizeSm="6">
+          <ion-item
+            lines="none"
+            *ngIf="ctrlUsername.touched && ctrlUsername.hasError('required')"
+          >
+            <ion-text position="floating" color="danger"
+              >Username is Required</ion-text
+            >
+          </ion-item>
+          <ion-item
+            lines="none"
+            *ngIf="
+              ctrlUsername.touched &&
+              !ctrlUsername.valid &&
+              ctrlUsername.hasError('minlength')
+            "
+          >
+            <ion-text position="floating" color="danger">
+              Username should be min 2 characters long</ion-text
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="RowCenter">
+        <ion-col sizeLg="3" sizeSm="6">
+          <ion-item lines="full">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input
+              [formControl]="ctrlPassword"
+              type="password"
+              aria-label="Password"
+              required
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="RowCenter">
+        <ion-col sizeLg="3" sizeSm="6">
+          <ion-item
+            lines="none"
+            lines="none"
+            *ngIf="ctrlPassword.touched && ctrlPassword.hasError('required')"
+          >
+          </ion-item>
+          <ion-item
+            lines="none"
+            *ngIf="
+              ctrlPassword.touched &&
+              !ctrlPassword.valid &&
+              ctrlPassword.hasError('minlength')
+            "
+          >
+            <ion-text position="floating" color="danger">
+              Password should be min 2 characters long</ion-text
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="RowCenter">
+        <ion-col sizeLg="1" sizeSm="6">
+          <ion-button type="submit" color="danger" expand="block"
+            >Sign In</ion-button
+          >
+        </ion-col>
+        <ion-col sizeLg="1" sizeSm="6">
+          <ion-button type="reset" color="danger" expand="block"
+            >Reset</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
